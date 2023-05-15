@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    box-sizing: border-box;
+
+    /* border: 1px solid #000; */
+}
+
+.card-group {
+    max-width: 1296px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #f2f2f2;
+    margin: 0 auto;
+}
+
+.card {
+    width: 416px;
+    border: 1px solid #c8c8c8;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 24px 0;
+
+}
+
+.card .pic {
+    width: 416px;
+    height: 312px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    vertical-align: middle;
+    border-radius: 16px 16px 0 0;
+
+}
+
+.card-img:hover {
+    cursor: pointer;
+    transition: .3s;
+    transform: scale(1.2);
+}
+
+.title {
+    height: 118px;
+    padding: 20px 32px;
+    border-top: 1px solid #c8c8c8;
+
+}
+
+.title h3 {
+    color: #020202;
+    font-size: 20px;
+    padding: 2px 0;
+    line-height: 24px;
+}
+
+.title p {
+    color: #525252;
+    font-size: 14px;
+    padding: 6px 0;
+    line-height: 21px;
+}
+
+.card-mode {
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #c8c8c8;
+}
+
+.card span {
+    color: #020202;
+    padding: 4px 0;
+    font-size: 16px;
+}
+
+.card-mode img {
+    width: 18px;
+    height: 19.92px;
+}
+
+.fw9 {
+    font-weight: 900;
+}
+
+.fw7 {
+    font-weight: 700;
+}
+
+.fw4 {
+    font-weight: 400;
+}
+
+@media screen and (max-width:1285px) {
+    .card-group {
+        width: 860px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width:880px) {
+    .card-group {
+        width: 416px;
+        margin: 0 auto;
+    }
+}
