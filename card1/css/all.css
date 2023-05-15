@@ -100,14 +100,14 @@
     font-weight: 400;
 }
 
-@media screen and (max-width:1285px) {
+@media (max-width:1285px) {
     .card-group {
         width: 860px;
         margin: 0 auto;
     }
 }
 
-@media screen and (max-width:880px) {
+@media (max-width:880px) {
     .card-group {
         width: 416px;
         margin: 0 auto;
