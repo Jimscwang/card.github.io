@@ -59,15 +59,14 @@
 .title h3 {
     color: #020202;
     font-size: 20px;
-    padding: 2px 0;
-    line-height: 24px;
+    line-height: 1.2;
 }
 
 .title p {
     color: #525252;
     font-size: 14px;
-    padding: 6px 0;
-    line-height: 21px;
+    line-height: 1.5;
+    margin-top: 12px;
 }
 
 .card-mode {
@@ -79,8 +78,8 @@
 
 .card span {
     color: #020202;
-    padding: 4px 0;
     font-size: 16px;
+    line-height: 1.5;
 }
 
 .card-mode img {
