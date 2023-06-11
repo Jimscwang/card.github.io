@@ -1,0 +1,119 @@
+.logo {
+    width: 245px;
+}
+
+.header .material-icons{
+    font-size: 24px;
+}
+
+.header-contant-footer .material-icons {
+    font-size: 80px;
+}
+
+.enterprise {
+    display: flex;
+    justify-content: center;
+    overflow-x: scroll;
+    position: relative;
+
+    &::after,
+    &::before {
+    content: "";
+    position: sticky;
+    width: 160px;
+    height: 40px;
+    top: 0;
+    }
+    
+    &::before {
+    left: 0;
+    padding-right: 160px;
+    background: linear-gradient(to right,#000,transparent);
+    }
+
+    &::after {
+    right: 0;
+    padding-left: 160px;
+    background: linear-gradient(to right,#000,transparent);
+    transform: rotate(-180deg);
+    }
+
+    li:not(:last-child) {
+        margin-right: 10px;
+      }
+      
+    img {
+    width: 160px;
+    height: 40px;
+    max-width: initial;
+    }
+}
+
+.header-footer-comment .card {
+    background: #1A1A1A;
+}
+
+/* 隱藏 x 軸 */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.enterprise::-webkit-scrollbar {
+    display: none;
+}
+  /* Hide scrollbar for IE, Edge and Firefox */
+.enterprise {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.header-footer-comment {
+    .card {
+        background: #1A1A1A;
+    }
+}
+
+.swiper-pagination.swiper-pagination-bullets {
+    bottom: 0px;
+    .swiper-pagination-bullet {
+        background-color: $dark-gray;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: $white;
+        transform: scale(1.5);
+        vertical-align: middle;
+    }
+}
+
+
+  
+
+
+
+
+
+@media (max-width:767px) {
+    .motin img {
+            width: 117px;
+        }
+}
+
+@media (max-width:375px){
+    .header{
+        padding: 28px 0px;
+        
+        .logo{
+            width: 147px;   
+        }
+    }
+
+    .header-contant-title {
+        font-size: $h5-font-size;
+    }
+    .header-contant-info {
+        font-size: $h2-font-size;
+    }
+
+    .header-contant-footer-title {
+        font-size: $h2-font-size;
+    }
+}
+
+

@@ -1,0 +1,58 @@
+.pricing-title {
+    margin-bottom: 240px;
+    h2 {
+        margin-bottom: $font-size-base * 4;
+    }
+}
+
+
+
+.pricing-card {
+    border: 1px solid #919191;
+    border-radius: 1rem;
+
+    &:hover {
+        border-color: white;
+        transition: border 0.5s;
+    }
+
+    &-title {
+        margin-bottom: 12px;
+    }
+
+    .material-icons {
+        font-size: 10px;
+    }
+}
+
+.list-style-circle {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.pricing-info {
+    p {
+        font-size: $h2-font-size; 
+    }
+}
+
+.QA-column {
+    border: 1px solid #919191;
+    border-radius: 1rem;
+    &:hover {
+        border-color: white;
+        transition: border 0.5s;
+    }
+}
+
+@media (max-width: 375px) {
+    .pricing-title {
+        margin-bottom: 260px;
+    }
+
+    .pricing-info {
+        p {
+            font-size: $font-size-base;
+        }
+    }
+}

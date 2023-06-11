@@ -1,0 +1,32 @@
+.motin-animation-1 {
+    animation: round 3s ease 0.6s infinite;
+}
+.motin-animation-2 {
+    animation: round 3s ease 0.3s infinite;
+}
+.motin-animation-3 {
+    animation: round 3s ease infinite;
+}
+
+@keyframes round {
+    0% {
+        transform: translateY(100%);
+    }
+    50% {
+        transform: translateY(0%);
+    }
+    75% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.scroll-left {
+    animation: scroll-left 5s infinite;
+}
+
+.scroll-right {
+    animation: scroll-right 5s infinite;
+}
