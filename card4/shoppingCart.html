@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.css">
+    <title>SUPER VEGETA</title>
+</head>
+<body>
+
+    <!-- headers -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">SUPER VEGETA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        pages
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Shop Details</a></li>
+                        <li><a class="dropdown-item" href="#">Shopping Cart</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Checkout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">conatck</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 購物車內的數量 (Button 內包含 icon, 數量 badge) -->
+            <div class="dropdown ms-auto">
+                <button class="btn btn-sm position-relative" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-shopping-cart text-secondary fa-2x" aria-hidden="true"></i>
+                    <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0">2</span>
+                    <span class="visually-hidden">unread messages</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end px-4 py-3" style="min-width: 300px" data-offset="400">
+                    <h6>已選擇商品</h6>
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td class="align-middle text-center">
+                                <a href="#removeModal" class="text-muted" data-bs-toggle="modal" data-title="刪除 烤肉大餐 10 份">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                                </td>
+                                <td class="align-middle">烤肉大餐</td>
+                                <td class="align-middle">10 份</td>
+                                <td class="align-middle">$5200</td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle text-center">
+                                    <a href="#removeModal" class="text-muted" data-bs-toggle="modal" data-title="刪除 新鮮魚貨 5 份">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                                <td class="align-middle">新鮮魚貨</td>
+                                <td class="align-middle">5 份</td>
+                                <td class="align-middle">$8880</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="shoppingCart-checkout.html" class="btn btn-primary d-block">結帳去</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- jumbotron -->
+    <header>
+    <div class="jumbotron jumbotron-bg p-5 mb-4 bg-body-tertiary">
+        <div class="container-fluid py-3 bg-lighter text-center">
+            <h1 class="display-5 fw-bold">Vegetable 100% Organic</h1>
+            <p class="fs-4">新鮮蔬果</p>
+            <p>自由挑選和提供寄送服務</p>
+            <hr class="m-2">
+            <button class="btn main-bg text-white fw-bold btn-lg mt-2" type="button">SHOP NOW</button>
+        </div>
+        </div>
+    </header>
+
+    <!-- 列表頁 -->
+    <section>
+        <div class="container">
+            <div class="row">
+            <!-- 左側選單 (List group) -->
+                <div class="col-md-3 mb-3">
+                    <div class="list-group text-center sticky-top" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" id="list-meat-list" data-bs-toggle="list" href="#list-meat" role="tab" aria-controls="list-home">新鮮肉品</a>
+                        <a class="list-group-item list-group-item-action" id="list-green-list" data-bs-toggle="list" href="#list-green" role="tab" aria-controls="list-profile">精緻蔬菜</a>
+                        <a class="list-group-item list-group-item-action" id="list-fruit-list" data-bs-toggle="list" href="#list-fruit" role="tab" aria-controls="list-messages">新鮮水果</a>
+                        <a class="list-group-item list-group-item-action" id="list-seafood-list" data-bs-toggle="list" href="#list-seafood" role="tab" aria-controls="list-settings">當地海產</a>
+                    </div>
+                </div>
+
+            <!-- 右側選單 (List group) -->
+                <div class="col-md-9">
+                    <!-- Search bar -->
+                    <form action="">
+                        <div class="input-group mb-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>All Categories</option>
+                                <option value="1">肉類</option>
+                                <option value="2">蔬菜</option>
+                                <option value="3">水果</option>
+                                <option value="4">海鮮</option>
+                            </select>
+                            <input class="form-control" type="search" placeholder="搜尋你想要的商品..." aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </div>
+                    </form>
+
+                    <!-- 主要商品列表 (Card) -->
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="list-meat" role="tabpanel" aria-labelledby="list-meat-list">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1547050605-2f268cd5daf0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1628543108325-1c27cd7246b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG1lYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0 text-danger">
+                                            <small>NT$</small>
+                                            <strong>520</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="list-green" role="tabpanel" aria-labelledby="list-green-list">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1510627498534-cf7e9002facc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1590868309235-ea34bed7bd7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1594282486756-06f49bb34c05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1553536645-f83758b55d23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1591586116988-62fe65164f8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0 text-danger">
+                                            <small>NT$</small>
+                                            <strong>520</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="list-fruit" role="tabpanel" aria-labelledby="list-fruit-list">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1594282486756-06f49bb34c05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1528821128474-27f963b062bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZydWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0 text-danger">
+                                            <small>NT$</small>
+                                            <strong>520</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="list-seafood" role="tabpanel" aria-labelledby="list-seafood-list">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1559742811-822873691df8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2VhZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2VhZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1585545335512-1e43f40d4999?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c2VhZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1576330383200-2bf325cfec52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNlYWZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1601314002592-b8734bca6604?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNlYWZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0">
+                                            <small>NT$</small>
+                                            <strong>30</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-center box-shadow border-0 h-100">
+                                        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHNlYWZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Card title</h4>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <div class="h3 ms-auto mb-0 text-danger">
+                                            <small>NT$</small>
+                                            <strong>520</strong>
+                                          </div>
+                                        </div>
+                                        <div class="card-footer text-body-secondary">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- 列表頁 -->
+
+    <hr>
+    <!-- 產品頁面 -->
+    <section>
+        <div class="container">
+            <nav aria-label="breadcrumb" >
+                <ol class="breadcrumb bg-transparent">
+                  <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                  <li class="breadcrumb-item"><a href="#">賣場</a></li>
+                  <li class="breadcrumb-item"><a href="#">新鮮漁貨</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">商品頁面</li>
+                </ol>
+            </nav>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="sticky-top" style="top: 10px;">
+                        <h1 class="h2">新鮮漁貨</h1>
+                        <div class="rading my-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(18 reviews)</span>
+                        </div>
+
+                        <div class="h3 ms-auto mb-0 text-danger">
+                            <small>NT$</small>
+                            <strong>520</strong>
+                        </div>
+
+                        <p class="my-3 pe-3">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+
+                        <form action="">
+                            <div class="input-group mb-3">
+                                <button class="btn btn-secondary rounded-start" type="button">+</button>
+                                <input type="text" class="form-control text-center" placeholder="" aria-label="Example text with two button addons" value="1">
+                                <button class="btn btn-secondary rounded-end" type="button">-</button>
+                                <button class="btn btn-secondary rounded ms-1" type="button">ADD TO CART</button>
+                            </div>
+                              
+                        </form>
+
+                    </div>
+                    
+                </div>
+                <div class="col-md-6 mx-auto">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="img-tab" data-bs-toggle="tab" data-bs-target="#img" type="button" role="tab" aria-controls="img" aria-selected="true">商品</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab" aria-controls="details" aria-selected="false">詳情</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="others-tab" data-bs-toggle="tab" data-bs-target="#others" type="button" role="tab" aria-controls="others" aria-selected="false">其他資訊</button>
+                        </li>
+                    </ul>
+                    
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="img" role="tabpanel" aria-labelledby="img-tab" tabindex="0">
+                            <img class="img-fluid my-3" src="https://images.unsplash.com/photo-1576330383200-2bf325cfec52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNlYWZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                        </div>
+                        <div class="tab-pane" id="details" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
+                            <dl class="row my-3">
+                                <dt class="col-sm-3">Availability</dt>
+                                <dd class="col-sm-9">In Stock</dd>
+                              
+                                <dt class="col-sm-3">shipping</dt>
+                                <dd class="col-sm-9">01 day shipping.<span class="text-danger">Free pickup today</span></dd>
+                              
+                                <dt class="col-sm-3">Weight</dt>
+                                <dd class="col-sm-9">0.5 kg</dd>
+
+                                <dt class="col-sm-3">message</dt>
+                                <dd class="col-sm-9 text-truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel cumque aspernatur possimus modi nihil in fugiat, placeat voluptatem! Inventore ratione totam nihil eum facere accusamus facilis temporibus, alias fugit minus a laboriosam numquam iste consectetur adipisci molestias saepe magni mollitia nulla tempore enim, quia nam non tempora? Eius, possimus iusto!</dd>
+                              
+                                <dt class="col-sm-3 text-truncate">Share on</dt>
+                                <dd class="col-sm-9">
+                                    <a class="me-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="me-3" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="me-3" href="#"><i class="fab fa-instagram"></i></a>
+                                </dd>
+                              
+                              </dl>
+                        </div>
+                        <div class="tab-pane" id="others" role="tabpanel" aria-labelledby="others-tab" tabindex="0">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam nostrum accusantium repellendus consequatur, tempora maxime reprehenderit adipisci. Vitae amet dignissimos labore eos debitis dolores tempore dolor ab rerum at provident expedita quos, quisquam corporis accusantium? Incidunt quia, totam maiores necessitatibus recusandae accusantium inventore nihil laboriosam ratione reiciendis expedita cupiditate. Omnis molestias quos adipisci veniam et possimus impedit corrupti in debitis, optio minima temporibus nihil consequatur? Veniam, ipsum modi obcaecati aliquid illum similique dignissimos distinctio aperiam nihil non sunt quae provident, aspernatur doloribus minus laboriosam quaerat nesciunt blanditiis aliquam. Harum repellat nam doloribus tempora ullam dolore ipsum, aut dicta autem explicabo!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h3 class="my-5 text-center">Related Product</h3>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card text-center box-shadow border-0 h-100">
+                        <img src="https://images.unsplash.com/photo-1559742811-822873691df8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2VhZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <div class="h3 ms-auto mb-0">
+                            <small>NT$</small>
+                            <strong>30</strong>
+                          </div>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card text-center box-shadow border-0 h-100">
+                        <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2VhZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <div class="h3 ms-auto mb-0">
+                            <small>NT$</small>
+                            <strong>30</strong>
+                          </div>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card text-center box-shadow border-0 h-100">
+                        <img src="https://images.unsplash.com/photo-1585545335512-1e43f40d4999?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c2VhZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <div class="h3 ms-auto mb-0">
+                            <small>NT$</small>
+                            <strong>30</strong>
+                          </div>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card text-center box-shadow border-0 h-100">
+                        <img src="https://images.unsplash.com/photo-1576330383200-2bf325cfec52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNlYWZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <div class="h3 ms-auto mb-0">
+                            <small>NT$</small>
+                            <strong>30</strong>
+                          </div>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card text-center box-shadow border-0 h-100">
+                        <img src="https://images.unsplash.com/photo-1601314002592-b8734bca6604?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNlYWZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <div class="h3 ms-auto mb-0">
+                            <small>NT$</small>
+                            <strong>30</strong>
+                          </div>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card text-center box-shadow border-0 h-100">
+                        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHNlYWZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top item-card-img" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <div class="h3 ms-auto mb-0 text-danger">
+                            <small>NT$</small>
+                            <strong>520</strong>
+                          </div>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-danger"><i class="far fa-heart"></i></button>
+                                <button type="button" class="btn btn-outline-primary"><i class="fas fa-shopping-cart pe-2"></i>加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <hr>
+    <!-- 結帳頁面 -->
+    <div class="container">
+        <h1 class="text-center mb-3 text-secondary">定單明細</h1>
+        <section class="row text-center">
+            <div class="col-12 col-sm">
+                <div class="alert alert-primary rounded-pill" role="alert">
+                    1.訂單資料
+                </div>
+            </div>
+            <div class="col-12 col-sm">
+                <div class="alert alert-light rounded-pill" role="alert">
+                    2.金流付款
+                </div>
+            </div>
+            <div class="col-12 col-sm">
+                <div class="alert alert-light rounded-pill" role="alert">
+                    3.完成
+                </div>
+            </div>
+
+
+        </section>
+
+        <section>
+            <div class="row mt-5">
+                <div class="col-md-9 mx-auto">
+                    <div class="card">
+                        <div class="card-header d-flex align-items-center">
+                            <a class="container-fluid me-auto" data-bs-toggle="collapse" href="#collapseOne" role="button" aria-expanded="false" aria-controls="collapseOne">
+                                顯示購物車細節
+                            </a>
+                            <span class="h3">NT$520</span>
+                        </div>
+
+                        <div class="collapse show" id="collapseOne">
+                            <div class="card card-body">
+                                <table class="table text-center align-middle table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">刪除</th>
+                                        <th scope="col">照片</th>
+                                        <th scope="col">商品</th>
+                                        <th scope="col">價格</th>
+                                        <th scope="col" class="col-3">數量</th>
+                                        <th scope="col" class="text-end">小計</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#removeModal" class="text-muted" data-bs-toggle="modal" data-title="刪除 烤肉大餐 8 個">
+                                                    <i class="fa-solid fa-trash-can text-secondary" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                            <td class="img-fluid">
+                                                <img class="img-fluid shopcart-img-size me-3" src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                                            </td>
+                                            <td>烤肉特餐</td>
+                                            <td>$99.00</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <button class="btn btn-secondary rounded-start" type="button">+</button>
+                                                    <input type="text" class="form-control text-center" placeholder="" aria-label="Example text with two button addons" value="8">
+                                                    <button class="btn btn-secondary rounded-end" type="button">-</button>
+                                                </div>
+                                            </td>
+                                            <td class="text-end">$792.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#removeModal" class="text-muted" data-bs-toggle="modal" data-title="刪除 烤肉大餐 10 個">
+                                                    <i class="fa-solid fa-trash-can text-secondary" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                            <td class="img-fluid">
+                                                <img class="img-fluid shopcart-img-size me-3" src="https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                                            </td>
+                                            <td>烤肉特餐</td>
+                                            <td>$55.00</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <button class="btn btn-secondary rounded-start" type="button">+</button>
+                                                    <input type="text" class="form-control text-center" placeholder="" aria-label="Example text with two button addons" value="10">
+                                                    <button class="btn btn-secondary rounded-end" type="button">-</button>
+                                                </div>
+                                            </td>
+                                            <td class="text-end">$550.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#removeModal" class="text-muted" data-bs-toggle="modal" data-title="刪除 烤肉大餐 20 個">
+                                                    <i class="fa-solid fa-trash-can text-secondary" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                            <td class="img-fluid">
+                                                <img class="img-fluid shopcart-img-size me-3" src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                                            </td>
+                                            <td>烤肉特餐</td>
+                                            <td>$55.00</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <button class="btn btn-secondary rounded-start" type="button">+</button>
+                                                    <input type="text" class="form-control text-center" placeholder="" aria-label="Example text with two button addons" value="20">
+                                                    <button class="btn btn-secondary rounded-end" type="button">-</button>
+                                                </div>
+                                            </td>
+                                            <td class="text-end">$1100.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5" class="text-end">運費</td>
+                                            <td class="text-end">
+                                              <strong>$60</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5" class="text-end">合計</td>
+                                            <td class="text-end fw-bold text-danger">
+                                              <strong>$2502</strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-5">
+                        <h3 class="my-3 fw-bold">Discount Codes</h3>
+                        <div class="col-5">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="請輸入優惠碼..." aria-label="Recipient's username" aria-describedby="button-addon">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon">代入</button>
+                            </div>
+                        </div>
+                        <div class="col-7 text-end">
+                            <button type="button" class="btn btn-secondary">繼續購物</button>
+                            <button type="button" class="btn btn-primary">確認付款</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <hr>
+    <!-- 付款頁面 -->
+    <div class="container my-3">
+        <h1 class="text-center mb-3 text-secondary">賣場結帳</h1>
+        <section class="row text-center">
+            <div class="col-12 col-sm">
+                <div class="alert alert-secondary rounded-pill" role="alert">
+                    1.訂單資料
+                </div>
+            </div>
+            <div class="col-12 col-sm">
+                <div class="alert alert-primary rounded-pill" role="alert">
+                    2.金流付款
+                </div>
+            </div>
+            <div class="col-12 col-sm">
+                <div class="alert alert-light rounded-pill" role="alert">
+                    3.完成
+                </div>
+            </div>
+        </section>
+        <section class="row">
+            <h3 class="fw-bold py-3 border-bottom text-center">Billing Details</h3>
+                <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-6">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="validationCustom01" class="form-label">First name<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="王" required>
+                                <div class="invalid-feedback">
+                                  Please Enter First Name
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                <label for="validationCustom02" class="form-label">Last name<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="validationCustom02" placeholder="小明" required>
+                                <div class="invalid-feedback">
+                                  Please Enter Last Name
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <label for="validationTooltip03" class="form-label">國家<span class="text-danger">*</span></label>
+                                  <select class="form-select" id="validationTooltip03" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="台灣">台灣</option>
+                                    <option value="中國">中國</option>
+                                    <option value="美國">美國</option>
+                                    <option value="日本">日本</option>
+                                  </select>
+                                  <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
+                                  <div class="invalid-feedback">
+                                    請選擇國家
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <label for="validationTooltip04" class="form-label">城市<span class="text-danger">*</span></label>
+                                  <select class="form-select" id="validationTooltip04" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="台北市">台北市</option>
+                                    <option value="台南市">台南市</option>
+                                    <option value="高雄市">高雄市</option>
+                                  </select>
+                                  <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
+                                  <div class="invalid-feedback">
+                                    請選擇城市
+                                  </div>
+                                </div>
+                                <div class="col-md-9">
+                                  <label for="validationCustom01" class="form-label">地址<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="validationCustom01" required>
+                                  <div class="invalid-feedback">
+                                      Please Enter Address
+                                  </div>
+                                </div>
+                                <div class="col-md-3">
+                                <label for="validationCustom05" class="form-label">郵遞區號</label>
+                                <input type="text" class="form-control" id="validationCustom05" required>
+                                <div class="invalid-feedback">
+                                  Please Enter Postal code.
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <label for="validationCustom01" class="form-label">電話<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="validationCustom01" placeholder="0123456789" required>
+                                  <div class="invalid-feedback">
+                                    Please Enter telephone number
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <label for="validationCustom01" class="form-label">Email<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="validationCustom01" placeholder="123@xxx.xx" required>
+                                  <div class="invalid-feedback">
+                                    Please Enter Email
+                                  </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                    <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <div class="col-12 col-md-11">
+                            <div class="row text-center">
+                                <h3 class="fw-bold border-bottom mt-3 mt-md-0">Order</h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0">
+                                        <h4>Products</h4>
+                                        <strong>Total</strong>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0">
+                                        Vegetable’s Package
+                                        <strong>$75.99</strong>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0">
+                                        Fresh Vegetable
+                                      <span>$151.99</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom">
+                                        Organic Bananas
+                                      <span>$53.99</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom">
+                                        <h4>Subtotal</h4>
+                                        <strong>$750.99</strong>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0">
+                                        <h4>Total</h4>
+                                        <strong class="h4 text-danger">$750.99</strong>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">確認付款</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+        </section>
+    </div>
+
+    <hr>
+    <!-- 完成購物 -->
+    <div class="container my-3">
+        <h1 class="text-center mb-3 text-secondary">購物完成</h1>
+        <section class="row text-center">
+            <div class="col-12 col-sm">
+                <div class="alert alert-secondary rounded-pill" role="alert">
+                    1.訂單資料
+                </div>
+            </div>
+            <div class="col-12 col-sm">
+                <div class="alert alert-secondary rounded-pill" role="alert">
+                    2.金流付款
+                </div>
+            </div>
+            <div class="col-12 col-sm">
+                <div class="alert alert-primary rounded-pill" role="alert">
+                    3.完成
+                </div>
+            </div>
+        </section>
+        <section">
+        <table class="table table-striped align-middle">
+            <thead>
+              <tr>
+                <th scope="col" colspan="2">Products</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col" class="text-end">Total</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr>
+                <td>
+                    <img class="img-fluid shopcart-img-size me-3" src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                </td>
+                <td>烤肉特餐</td>
+                <td>$99.00</td>
+                <td>8個</td>
+                <td class="text-end">$49.00</td>
+              </tr>
+              <tr>
+                <td>
+                    <img class="img-fluid shopcart-img-size me-3" src="https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                </td>
+                <td>烤肉特餐</td>
+                <td>$55.00</td>
+                <td>10個</td>
+                <td class="text-end">$80.00</td>
+              </tr>
+              <tr>
+                <td>
+                    <img class="img-fluid shopcart-img-size me-3" src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                </td>
+                <td>烤肉特餐</td>
+                <td>$55.00</td>
+                <td>20個</td>
+                <td class="text-end">$110.00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="fw-bold text-end" colspan="4">Total</td>
+                    <td class="fw-bold text-end text-danger h3" colspan="4">$454.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-outline-primary btn-lg my-3">繼續購物</button>
+        </div>
+
+        </section>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="removeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+            <h1 class="modal-title fs-5" id="removeModalLabel">刪除商品</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>是否確認刪除商品</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>
+            <button type="button" class="btn btn-outline-danger">Yes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+      
+
+      
+
+
+
+    <script src="https://kit.fontawesome.com/5ff57fd5f7.js"></script>
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="js/all.js"></script>
+</body>
+</html>
